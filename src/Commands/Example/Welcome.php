@@ -39,17 +39,34 @@ class Welcome extends ContainerAwareCommand
 
         $output->writeln($greet);
 
-        if ($config = $this->config->get('example.config.item')) {
-            $output->writeln("Also read this name from config files: $config");
-        }
-
         $output->writeln("
-This is just an example command; You can use this as a starting point for your new commands.
-
-Feel free to remove this by:
-- Removing src/Commands/Example directory
-- Unregistering the class from config/app.php
-- Removing the sample config item from config/app.php
+            This was just an example command; You can use this as a starting point for your new commands.
+            
+            Feel free to remove this by:
+            - Removing src/Commands/Example directory
+            - Unregistering the class from config/app.php
+            - Removing the sample config item from config/app.php
+            
+            Also, take a look at the source code to see some usage examples of resolving components out of the container.
         ");
+
+        //
+        // Examples of resolving components out of the container:
+        //
+
+        // Config component is loaded by default
+        //$this->config->get('example.config.item');
+
+        // Requires `components.logging` to be `true`
+        //$this->log->info('This is sample info log entry...');
+
+        // Requires `components.events` to be `true`
+        //$this->events->fire('example.welcome.done');
+
+        // Requires `components.filesystem` to be `true`
+        //$this->files->put(storage_path('test.txt'), 'some sample content...');
+
+        // Requires `components.database` to be `true`
+        //$this->db->table('users')->get();
     }
 }

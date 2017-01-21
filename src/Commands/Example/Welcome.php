@@ -3,6 +3,7 @@
 namespace App\Commands\Example;
 
 use App\ContainerAwareCommand;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -20,7 +21,9 @@ class Welcome extends ContainerAwareCommand
             ->setName('example:welcome')
             ->setDescription('Greets you with a welcome message!')
             ->setHelp('An example welcome command; feel free to remove this from bin/app.')
-            ->addArgument('name', InputArgument::OPTIONAL, 'Name to greet to.');
+            ->addArgument('name', InputArgument::OPTIONAL, 'Name to greet to.')
+            ->addOption('log', 'l', InputOption::VALUE_NONE, 'Whether to add a log entry or not.')
+            ->addOption('event', 'e', InputOption::VALUE_NONE, 'Whether to fire an event or not.');
     }
 
     /**
@@ -58,10 +61,10 @@ class Welcome extends ContainerAwareCommand
         //$this->config->get('example.config.item');
 
         // Requires `components.logging` to be `true`
-        //$this->log->info('This is sample info log entry...');
+        $input->getOption('log') && $this->log->info('This is sample info log entry...');
 
         // Requires `components.events` to be `true`
-        //$this->events->fire('example.welcome.done');
+        $input->getOption('event') && $this->events->fire('example.welcome.done');
 
         // Requires `components.filesystem` to be `true`
         //$this->files->put(storage_path('test.txt'), 'some sample content...');

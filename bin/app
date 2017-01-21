@@ -11,6 +11,7 @@ define('APP_VERSION', '0.0.1');
 $app = new Application(APP_NAME, APP_VERSION);
 
 // Register your commands
+// @TODO: CommandProvider, Command, ContainerAwareCommand
 $app->addCommands([
     // Example welcome command;
     // Feel free to remove this as well as the src/Example/ directory.

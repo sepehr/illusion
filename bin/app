@@ -3,10 +3,13 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use Illuminate\Container\Container;
 use Symfony\Component\Console\Application;
 
 define('APP_NAME', 'Illuminate CLI App');
 define('APP_VERSION', '0.0.1');
+
+$container = new Container;
 
 $app = new Application(APP_NAME, APP_VERSION);
 
@@ -15,7 +18,7 @@ $app = new Application(APP_NAME, APP_VERSION);
 $app->addCommands([
     // Example welcome command;
     // Feel free to remove this as well as the src/Example/ directory.
-    new App\Example\WelcomeCommand,
+    new App\Example\WelcomeCommand($container),
 
     // ...
 ]);

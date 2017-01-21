@@ -2,12 +2,12 @@
 
 namespace App\Example;
 
-use App\Command;
+use App\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class WelcomeCommand extends Command
+class WelcomeCommand extends ContainerAwareCommand
 {
     /**
      * Command configurer.

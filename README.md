@@ -1,7 +1,7 @@
 # Illuminate Console Skeleton App
-An orchestration of Symfony's console with Illuminate components on top.
+A minimal orchestration of Symfony's console with Illuminate components on top.
 
-In clearer words; A DI-enabled console application skeleton built on top of symfony/console and standalone Illuminate (Laravel) components.  
+In clearer words; A minimal DI-enabled console application skeleton built on top of symfony/console and standalone Illuminate (Laravel) components.  
 
 Included Illuminate components are:
 - Log
@@ -22,6 +22,7 @@ $ chmod +x bin/app
 $ bin/app
 ```
 
+Please note that this is not a framework, but an application skeleton; thus you're free to make any changes to any files you feel the need to. 
 
 ## Example command
 ### WelcomeCommand

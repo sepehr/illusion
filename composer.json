@@ -9,5 +9,7 @@
             "email": "lajevardi@gmail.com"
         }
     ],
-    "require": {}
+    "require": {
+        "symfony/console": "^3.2"
+    }
 }

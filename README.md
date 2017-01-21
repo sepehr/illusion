@@ -2,29 +2,32 @@
 A DI-enabled console application skeleton built on top of symfony/console and standalone Illuminate (Laravel) components.  
 
 Included Illuminate components are:
-- Container
 - Log
 - Config
+- Container
 - Database (optional)
 
-## Create a new application
+
+## New Application
+### Create a new application
 ```shell
 $ composer create-project sepehr/illuminate-cli-app new-cli-app/
 ```
 
-## Running your application
+### Running your new application
 ```
 $ chmod +x bin/app
 $ bin/app
 ```
 
-## Example command: Welcome
+
+## Example command
+### WelcomeCommand
 ```
-$ bin/app welcome
-Welcome!
+$ bin/app example:welcome [your-name]
 ```
 
-## Remove the example command
+### Remove the example command
 Remove the command class from `bin/app`:
 
 ```
@@ -37,5 +40,12 @@ And then remove the directory:
 
 `$ rm -r src/Welcome`
 
-## Adding more components
+
+## New command
+### Add a new regular command
+### Add a new container-aware command
+### Testing your commands
+
+
+## Adding more Illiminate components
 ...

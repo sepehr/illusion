@@ -57,8 +57,8 @@ abstract class ContainerAwareCommand extends Command
     {
         $container = $this->getContainer();
 
-        if (isset($container[$key])) {
-            return $container[$key];
+        if ($container->bound($key)) {
+            return $container->make($key);
         }
     }
 }

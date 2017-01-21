@@ -3,11 +3,14 @@ A minimal orchestration of Symfony's console with Illuminate components on top.
 
 In clearer words; A minimal DI-enabled console application skeleton built on top of symfony/console and standalone Illuminate (Laravel) components.  
 
-Included Illuminate components are:
-- Log
-- Config
-- Container
-- Database (optional)
+Included Illuminate components:
+- illuminate/config
+- illuminate/container
+
+Supported Illuminate components:
+- illuminate/log
+- illuminate/database
+- illuminate/filesystem
 
 
 ## New Application
@@ -22,16 +25,17 @@ $ chmod +x bin/app
 $ bin/app
 ```
 
-Please note that this is not a framework, but an application skeleton; thus you're free to make any changes to any files you feel the need to. 
+Please note that this is not a framework, but an application skeleton; thus you're free to make any changes to any files you want; there's no "core". 
+
 
 ## Example command
-### WelcomeCommand
+### App\Commands\Example\Welcome
 ```
 $ bin/app example:welcome [your-name]
 ```
 
 ### Remove the example command
-Remove the command class from `bin/app`:
+Remove the command class from `config/app.php`:
 
 ```
 $app->add(
@@ -41,7 +45,7 @@ $app->add(
 
 And then remove the directory:
 
-`$ rm -r src/Welcome`
+`$ rm -r src/Commands/Example`
 
 
 ## New command

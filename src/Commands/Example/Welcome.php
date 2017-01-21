@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Example;
+namespace App\Commands\Example;
 
 use App\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputArgument;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class WelcomeCommand extends ContainerAwareCommand
+class Welcome extends ContainerAwareCommand
 {
     /**
      * Command configurer.

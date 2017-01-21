@@ -1,5 +1,7 @@
 # Illuminate Console Skeleton App
-A DI-enabled console application skeleton built on top of symfony/console and standalone Illuminate (Laravel) components.  
+An orchestration of Symfony's console with Illuminate components on top.
+
+In clearer words; A DI-enabled console application skeleton built on top of symfony/console and standalone Illuminate (Laravel) components.  
 
 Included Illuminate components are:
 - Log

@@ -11,18 +11,19 @@ abstract class ContainerAwareCommand extends Command
      *
      * @var Container
      */
-    private $container;
+    protected $container;
 
     /**
      * ContainerAwareCommand constructor.
      *
      * @param  Container $container
+     * @param  string|null $name
      */
-    public function __construct(Container $container)
+    public function __construct(Container $container, $name = null)
     {
         $this->setContainer($container);
 
-        parent::__construct();
+        parent::__construct($name);
     }
 
     /**
@@ -46,19 +47,18 @@ abstract class ContainerAwareCommand extends Command
     }
 
     /**
-     * Re-routes calls to the container.
+     * Container property accessor.
      *
-     * @param  string $method
-     * @param  array $args
+     * @param  string $key
      *
      * @return mixed
      */
-    public function __call($method, $args)
+    public function __get($key)
     {
         $container = $this->getContainer();
 
-        if (is_callable([$container, $method])) {
-            return $container->$method(...$args);
+        if (isset($container[$key])) {
+            return $container[$key];
         }
     }
 }

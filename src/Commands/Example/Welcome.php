@@ -38,5 +38,18 @@ class Welcome extends ContainerAwareCommand
             : 'Welcome to the machine!';
 
         $output->writeln($greet);
+
+        if ($config = $this->config->get('example.config.item')) {
+            $output->writeln("Also read this name from config files: $config");
+        }
+
+        $output->writeln("
+This is just an example command; You can use this as a starting point for your new commands.
+
+Feel free to remove this by:
+- Removing src/Commands/Example directory
+- Unregistering the class from config/app.php
+- Removing the sample config item from config/app.php
+        ");
     }
 }

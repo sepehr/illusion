@@ -3,24 +3,29 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
+use Illuminate\Config\Repository;
 use Illuminate\Container\Container;
 use Symfony\Component\Console\Application;
 
-define('APP_NAME', 'Illuminate CLI App');
-define('APP_VERSION', '0.0.1');
+define('BASE_PATH', realpath(__DIR__ . '/..'));
+define('LOGS_PATH', BASE_PATH . '/logs');
+define('CONFIG_PATH', BASE_PATH . '/config');
+
+$config = new Repository(require CONFIG_PATH . '/app.php');
 
 $container = new Container;
+$container->instance('config', $config);
 
-$app = new Application(APP_NAME, APP_VERSION);
+$app = new Application($config->get('name'), $config->get('version'));
 
-// Register your commands
-// @TODO: CommandProvider, Command, ContainerAwareCommand
-$app->addCommands([
-    // Example welcome command;
-    // Feel free to remove this as well as the src/Example/ directory.
-    new App\Commands\Example\Welcome($container),
+// Register container-aware commands
+$app->addCommands(array_map(function ($command) use ($container) {
+    return new $command($container);
+}, $config->get('commands.container-aware')));
 
-    // ...
-]);
+// Register non-container-aware commands
+$app->addCommands(array_map(function ($command) {
+    return new $command;
+}, $config->get('commands.non-container-aware')));
 
 $app->run();

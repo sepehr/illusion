@@ -1,8 +1,7 @@
 .env
-logs/*
-!logs/.gitkeep
 storage/*
-!storage/.gitkeep
+storage/logs/*
+!storage/logs/.gitkeep
 
 vendor
 docs/build
@@ -14,4 +13,3 @@ composer.phar
 .idea
 *.swp
 *.lock
-

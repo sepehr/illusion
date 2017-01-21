@@ -55,7 +55,7 @@ return [
 
     'log' => [
         'channel' => 'app',
-        'path'    => realpath(__DIR__ . '/..') . '/logs/app.log',
+        'path'    => storage_path('logs/app.log'),
     ],
 
     /*

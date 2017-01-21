@@ -1,0 +1,13 @@
+{
+    "name": "sepehr/illuminate-cli-app",
+    "description": "CLI app skeleton with symfony/console and illuminate standalone components.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sepehr Lajevardi",
+            "email": "lajevardi@gmail.com"
+        }
+    ],
+    "require": {}
+}

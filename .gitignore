@@ -1,0 +1,14 @@
+logs/*
+!logs/.gitkeep
+
+vendor
+docs/build
+tests/coverage
+composer.phar
+.php_cs.cache
+
+*~
+.idea
+*.swp
+*.lock
+

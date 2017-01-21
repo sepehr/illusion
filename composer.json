@@ -27,5 +27,11 @@
         "post-root-package-install": [
             "php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ]
+    },
+    "suggest": {
+        "illuminate/log": "Required for logging capabilities.",
+        "illuminate/database": "Required for database interaction.",
+        "illuminate/filesystem": "Required for filesystem interaction.",
+        "illuminate/events": "Required for event listening and dispatching."
     }
 }

@@ -3,4 +3,25 @@
 
 $app = require_once __DIR__ . '/../bootstrap/app.php';
 
+// Commands in config/app.php are now registered with the console app,
+// in case you need to manually register commands out of the config
+// file, you can do so here. Let's see an example:
+//
+//    $app->add(new App\Commands\MyCommand);
+//
+// If it's a container-aware command, you need to pass the $container
+// to its constructor; like this:
+//
+//    $app->add(new App\Commands\MyCommand($container));
+//
+// You can add multiple commands by calling the `addCommands` method:
+//
+//    $app->addCommands([
+//        new App\Commands\MyCommand,
+//        new App\Commands\MyOtherCommand,
+//        new App\Commands\MyContainerAwareCommand($container),
+//    ])
+//
+// It's easier to just add them into the config file though.
+
 $app->run();

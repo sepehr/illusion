@@ -55,6 +55,10 @@ abstract class ContainerAwareCommand extends Command
      */
     public function __call($method, $args)
     {
-        return $this->getContainer()->$method(...$args);
+        $container = $this->getContainer();
+
+        if (is_callable([$container, $method])) {
+            return $container->$method(...$args);
+        }
     }
 }

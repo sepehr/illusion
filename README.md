@@ -1,4 +1,4 @@
-# Illuminate Console Skeleton App
+# Illuminate Console App Skeleton 
 A minimal orchestration of Symfony's console with Illuminate components on top.
 
 In clearer words; A minimal DI-enabled console application skeleton built on top of symfony/console and standalone Illuminate (Laravel) components.  
